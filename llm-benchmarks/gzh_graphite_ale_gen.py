@@ -77,12 +77,12 @@ def cover():
     W('<span style="font-size:10px;color:#A1A1AA;font-weight:500;">' + leaf('2026.11') + '</span>')
     W('</section>')
     W('<p style="font-size:11px;color:#A1A1AA;letter-spacing:2px;margin:0 0 18px;font-weight:400;">' + leaf('QUOTE') + '</p>')
-    W('<p style="font-size:24px;font-weight:900;color:#27272A;margin:0 0 8px;line-height:1.2;letter-spacing:-1px;">' + leaf('45.9% 通过，') + '</p>')
-    W('<p style="font-size:24px;font-weight:900;color:#F97316;margin:0 0 14px;line-height:1.2;letter-spacing:-1px;">' + leaf('77.4% 得分') + '</p>')
-    W('<p style="font-size:19px;font-weight:700;color:#3F3F46;margin:0 0 18px;line-height:1.5;letter-spacing:0.3px;">' + leaf('Agent 会干活，却交付不了') + '</p>')
+    W('<p style="font-size:24px;font-weight:900;color:#27272A;margin:0 0 10px;line-height:1.35;letter-spacing:-0.75px;">' + leaf('智能体最后的考试？') + '</p>')
+    W('<p style="font-size:19px;font-weight:700;color:#27272A;margin:0 0 18px;line-height:1.5;letter-spacing:0.3px;">' + '<span style="border-bottom:2px solid #F97316;">' + leaf('首先，能干活不等于能交付') + '</span></p>')
     W('<section style="width:48px;height:3px;background:#27272A;margin-bottom:16px;">' + blank() + '</section>')
     W('<p style="font-size:11px;font-weight:800;letter-spacing:2.5px;color:#52525B;margin:0 0 8px;">' + leaf('AGENTS’ LAST EXAM · ALE') + '</p>')
-    W('<p style="font-size:13px;color:#71717A;margin:0;line-height:1.7;">' + leaf('122 个活跃任务 · 55 个子行业 · 隐藏参考 · 15 个配置') + '</p>')
+    W('<p style="font-size:13px;color:#71717A;margin:0 0 6px;line-height:1.7;">' + leaf('Pass Rate 45.9% · Score 77.4%') + '</p>')
+    W('<p style="font-size:11px;color:#A1A1AA;margin:0;line-height:1.7;">' + leaf('122 个活跃任务 · 55 个子行业 · 隐藏参考 · 15 个配置') + '</p>')
     W('</section>')
 
 
