@@ -145,6 +145,7 @@ def cover():
     W('<span style="width:22px;height:3px;background:#1e1f23;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
     W('<span style="width:8px;height:3px;background:#bfc1b7;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
     W('</section>')
+    W('<p style="font-size:12px;font-weight:800;letter-spacing:2px;color:#4d4f46;margin:0 0 8px;">' + leaf('TERMINAL-BENCH 4.0') + '</p>')
     W('<p style="font-size:13px;color:#65675e;margin:0;line-height:1.7;">' + leaf('30 道题的评分缺陷 · 66 题 · 330 trials · 独立 verifier') + '</p>')
     W('</section>')
     W('<section style="flex-shrink:0;width:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#eeefe9;border:1px dashed #bfc1b7;border-radius:6px;padding:8px;">')

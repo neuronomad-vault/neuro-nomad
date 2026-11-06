@@ -130,6 +130,7 @@ def cover():
       + leaf('64.85% 的榜首，') + '<span style="color:#059669;">' + leaf('并不稳') + '</span></p>')
     W('<p style="font-size:24px;font-weight:900;color:#059669;margin:0 0 16px;line-height:1.05;letter-spacing:-2px;">' + leaf('30 道题的评分缺陷') + '</p>')
     W('<section style="width:48px;height:3px;background:linear-gradient(to right,#059669,#34D399);border-radius:2px;margin-bottom:12px;"><span leaf=""><br></span></section>')
+    W('<p style="font-size:12px;font-weight:800;letter-spacing:2px;color:#059669;margin:0 0 10px;">' + leaf('TERMINAL-BENCH 4.0') + '</p>')
     W('<p style="font-size:13px;color:#9CA3AF;margin:0;line-height:1.7;letter-spacing:0.5px;">' + leaf('66 题 · 330 trials · 独立 verifier · 跨口径比较') + '</p>')
     W('</section></section>')
     W('<section style="background:linear-gradient(135deg,#059669,#10B981);padding:12px 28px;display:flex;align-items:center;justify-content:space-between;">')
