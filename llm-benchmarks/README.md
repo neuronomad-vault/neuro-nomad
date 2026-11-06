@@ -9,18 +9,22 @@
 
 ## 文章列表
 
-| 文章 | 基准版本 | 排版版本 | 源稿 |
-|---|---|---|---|
-| [Terminal-Bench 4.0](terminal-bench-v4-0/terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html) | v4.0.0 | 摸鱼绿 / 留白禅意 / 橄榄手记 | `benchmarks/terminal-bench-v4-0.md` |
+| 序号 | 文章 | 基准版本 | 排版版本 | 源稿 |
+|---|---|---|---|---|
+| 01 | [Humanity's Last Exam (HLE)](hle/hle_排版_橄榄手记(olive-journal).html) | 2,500 题（2026-11 核验） | 橄榄手记 | `benchmarks/hle.md` |
+| 02 | [Terminal-Bench 4.0](terminal-bench-v4-0/terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html) | v4.0.0 | 摸鱼绿 / 留白禅意 / 橄榄手记 | `benchmarks/terminal-bench-v4-0.md` |
 
-已发布文章的主推版本为**摸鱼绿**；另两版为同一内容的主题对照存档。
+HLE 为系列第一篇，按用户指定使用**橄榄手记**；Terminal-Bench 4.0 顺延为第二篇，主推版本为**摸鱼绿**，另两版为同一内容的主题对照存档。
 
 ## 系列内文件
 
 ```
 llm-benchmarks/
 ├── README.md                                  # 本文件：系列说明与索引
-├── terminal-bench-v4-0/                       # 一篇文章一个子目录（同一篇的多主题排版都放这里）
+├── hle/                                       # 01 · HLE（一篇文章一个子目录）
+│   ├── hle_排版_橄榄手记(olive-journal).html
+│   └── hle_排版_橄榄手记(olive-journal)_预览.html
+├── terminal-bench-v4-0/                       # 02 · Terminal-Bench 4.0（同一篇的多主题排版都放这里）
 │   ├── <slug>_排版_<主题名>(<theme>).html       # 公众号正文（内联样式，可直接粘贴）
 │   └── <slug>_排版_<主题名>(<theme>)_预览.html  # 预览页，带「复制」按钮
 ├── gzh_<theme>_gen.py                         # 该主题的装配脚本
@@ -30,7 +34,7 @@ llm-benchmarks/
 
 - `<slug>` 采用 `<benchmark>-v<major>-<minor>`，如 `terminal-bench-v4-0`；同名的子目录存放该篇的全部产物。
 - 同一篇文章的多主题版本共享内容装配层，只替换组件层，保证内容零差异。
-- 封面眉标统一标注系列与序号：`LLM BENCHMARKS · 01`（禅意版写作 `—— LLM Benchmarks 系列 · 01`），新文章顺延编号。
+- 封面眉标统一标注系列与序号：首篇 HLE 为 `LLM BENCHMARKS · 01`（禅意版写作 `—— LLM Benchmarks 系列 · 01`），Terminal-Bench 4.0 顺延为 `02`，新文章继续顺延。
 - 正文 HTML 由脚本生成，不手改；改内容改脚本后重跑。
 - 一次性补丁脚本重复运行会触发断言失败，仅作留档。
 

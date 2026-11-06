@@ -35,7 +35,7 @@ neuro-nomad/
 
 | 系列 | 目录 | 定位 | 最新文章 |
 |---|---|---|---|
-| LLM Benchmarks | `llm-benchmarks/` | 逐篇拆解大模型评测基准：考什么、怎么跑、分数怎么读 | Terminal-Bench 4.0 |
+| LLM Benchmarks | `llm-benchmarks/` | 逐篇拆解大模型评测基准：考什么、怎么跑、分数怎么读 | Humanity's Last Exam (HLE) |
 
 各系列的文章索引、文件命名与选题约定见系列目录下的 `README.md`。
 源 Markdown 存放在 `/Users/admin/work/llm-benchmarks/benchmarks/`，不在本仓库。

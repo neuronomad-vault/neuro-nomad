@@ -120,7 +120,7 @@ def cover():
     W('<section style="padding:32px 28px 28px;">')
     W('<section style="display:flex;align-items:center;gap:8px;margin-bottom:28px;">')
     W('<span style="width:6px;height:6px;background:#059669;border-radius:50%;"><span leaf=""><br></span></span>')
-    W('<span style="font-size:11px;font-weight:700;letter-spacing:3px;color:#059669;">' + leaf('LLM BENCHMARKS · 01') + '</span>')
+    W('<span style="font-size:11px;font-weight:700;letter-spacing:3px;color:#059669;">' + leaf('LLM BENCHMARKS · 02') + '</span>')
     W('<section style="flex:1;height:1px;overflow:hidden;background:linear-gradient(to right,rgba(5,150,105,0.12),transparent);"><span leaf=""><br></span></section>')
     W('<span style="font-size:10px;color:#D1D5DB;font-weight:600;">' + leaf('2026.11') + '</span>')
     W('</section>')
