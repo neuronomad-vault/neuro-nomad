@@ -11,7 +11,7 @@
   - `/Users/admin/work/neuro-nomad`：公众号内容仓库，含 `llm-benchmarks/` 系列排版产物。
 - 不要把基准文档、调研笔记、`sources/` 快照提交到本仓库；也不要把公众号 HTML / 图片提交到 `llm-benchmarks` 仓库。
 - 图片素材落 `llm-benchmarks/<slug>/` 或 `llm-benchmarks/assets/<slug>/`，按现有文章约定，不要散落在仓库根目录。
-- 本仓库**没有 `.gitignore`**；提交前用 `git status` 明确列出要加的文件，**不要 `git add -A`**。
+- 本仓库的 `.gitignore` 只忽略 Python 字节码；`.workbuddy/`、`*.miora`、`*_assets/` 等仍未被忽略，提交前用 `git status` 明确列出要加的文件，**不要 `git add -A`**。
 
 ## 2. 目录与命名
 
@@ -21,12 +21,20 @@ AGENTS.md
 .claude/skills/gzh-layout-pro/          # 公众号排版技能：6 套主题组件库 + 校验脚本
 llm-benchmarks/
 ├── README.md                           # 系列说明、文章索引、新增流程
+├── gzh/                                # 新构建架构（内容层 / 主题层 / 渲染工具）
+│   ├── render.py                       # leaf / token / 转义等通用工具
+│   ├── registry.py                     # 文章注册表：slug / 目录 / 系列号 / 源稿 / 可用主题
+│   ├── cli.py                          # 构建入口
+│   ├── themes/                         # 主题组件层
+│   │   ├── base.py                     # Theme 基类与组件契约
+│   │   └── graphite.py                 # 石墨极简风
+│   └── articles/                       # 文章内容层，只调用主题接口
+│       └── agents_last_exam.py
 ├── <slug>/                             # 一篇文章一个子目录
 │   ├── <slug>_排版_<主题中文名>(<theme>).html
 │   └── <slug>_排版_<主题中文名>(<theme>)_预览.html
-├── gzh_<theme>_gen.py                  # 该主题的装配脚本
-├── gzh_<theme>_<slug>_gen.py           # 同主题多篇时用 slug 区分
-├── patch_<theme>*.py                   # 一次性补丁，仅作历史留档
+├── gzh_<theme>_<slug>_gen.py           # 旧脚本：迁移完成后只作兼容入口
+├── patches/                            # 一次性补丁，仅作历史留档
 └── check_completeness.py               # 核对 HTML 相对源 Markdown 的内容零遗漏
 ```
 
@@ -55,13 +63,12 @@ llm-benchmarks/
 
 1. **源稿**：确认 `/Users/admin/work/llm-benchmarks/benchmarks/<slug>.md` 已按该仓库 `AGENTS.md` 完成核验。
 2. **选主题**：读 `.claude/skills/gzh-layout-pro/references/theme-index.md`，按题材推荐最契合的主题，并让用户确认；用户未指定时不要擅自定死。
-3. **建目录与脚本**：新建 `llm-benchmarks/<slug>/`，写 `gzh_<theme>_<slug>_gen.py`，输出目录指向该子目录。
-4. **生成正文**：脚本只输出 `<section>…</section>` 正文片段，不包 `<!DOCTYPE>` / `<html>` / `<head>` / `<body>`；所有文字节点用 `<span leaf="">` 包裹。
-5. **生成预览**：`wrap_preview.py` 产出带「复制到公众号」按钮的预览页。
-6. **双关校验**：
-   - `validate_gzh_html.py`：必须 0 ERROR、0 WARNING。
-   - `check_completeness.py`：表格单元格、URL、代码行、`##` / `###` 标题均 0 缺失。
-7. **登记**：更新 `llm-benchmarks/README.md` 的文章列表与目录树，更新根 `README.md` 的系列最新文章；如改序号，按 §3 同步。
+3. **写内容层**：新建 `gzh/articles/<slug>.py`，暴露 `build(t, meta)`；正文只调用 `t.para` / `t.table` / `t.chapter` 等主题接口，不直接拼主题样式。
+4. **写主题层**：在 `gzh/themes/<theme>.py` 实现或复用组件；同一主题的公共逻辑放 `gzh/themes/base.py`。
+5. **登记**：在 `gzh/registry.py` 填入 slug、内容模块、输出目录、系列号、源稿路径与可用主题。
+6. **构建**：`python3 -m gzh.cli build <slug> --theme <theme> --preview --check`；产物写到 `llm-benchmarks/<slug>/`。
+7. **校验**：`validate_gzh_html.py` 必须 0 ERROR、0 WARNING；`check_completeness.py` 表格单元格、URL、代码行、`##` / `###` 标题均 0 缺失。
+8. **登记文章索引**：更新 `llm-benchmarks/README.md` 的文章列表与目录树，更新根 `README.md` 的系列最新文章；如改序号，按 §3 同步。
 
 ## 5. 排版契约
 
@@ -73,9 +80,16 @@ llm-benchmarks/
 - 图片用 `max-width:100%;height:auto;display:block;margin:0 auto`，不强制 `width:100%`。
 - 一篇文章只有一个 END 分割线和一个签名区；不要在多处重复 CTA。
 
-## 6. 校验命令
+## 6. 构建与校验命令
 
-从本仓库根目录执行：
+构建（在 `llm-benchmarks/` 目录执行，`--preview --check` 会顺带生成预览并跑两关校验）：
+
+```bash
+python3 -m gzh.cli build agents-last-exam --theme graphite --preview --check
+python3 -m gzh.cli build --all
+```
+
+单独校验（在本仓库根目录执行）：
 
 ```bash
 # 产物合规：禁用标签 / leaf 包裹 / 全角标点，须 0 ERROR
@@ -112,10 +126,13 @@ python3 .claude/skills/gzh-layout-pro/scripts/wrap_preview.py \
 - 同一篇文章多主题版本共享内容层，改内容后所有主题都要重跑，避免版本间内容漂移。
 - 预览页的「复制」按钮只在预览外壳里，不在被复制的 `<section>` 内；不要把预览页当成正文提交给公众号。
 - 图片素材与正文分离：`llm-benchmarks/hle/` 下的 PNG 目前只是归档，尚未接入排版；接入前先确认用户要求。
+- 迁移状态：ALE、Terminal-Bench、HLE 均已迁到 `gzh/`；`gzh_moyu_gen.py` / `gzh_olive_gen.py` / `gzh_olive_hle_gen.py` / `gzh_graphite_ale_gen.py` 只作兼容入口。TB 的 `zen` 主题由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（raw HTML），`patches/patch_zen*.py` 仅作历史留档。
+- HLE 公众号版是**节选**：`gzh/registry.py` 里 `completeness=False`，`--check` 只跑 HTML 合规，不跑源稿逐项完整性；新增 HLE 内容时不要误以为漏了原稿章节。
 
 ## 9. 当前状态
 
 - 系列：LLM Benchmarks
 - 已排：HLE（01 / 橄榄手记）、ALE（02 / 石墨极简风）、Terminal-Bench 4.0（04 / 摸鱼绿、留白禅意、橄榄手记）
 - 待排：SLE（03，源稿 `benchmarks/sciences-last-exam.md`，建议等 v1 相对稳定后再排）
+- 构建架构：ALE、Terminal-Bench、HLE 已迁到 `gzh/` 包；TB 的 zen 用 raw 内容层冻结，组件式 ZenTheme 尚未实现
 - 截至 2026-11-06，最近关键提交：`9684e2d chore(gzh): 合入 ALE 第 2 篇图文与序号调整`

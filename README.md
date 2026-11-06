@@ -14,10 +14,12 @@
 neuro-nomad/
 ├── README.md
 ├── AGENTS.md                      # Agent 工作约定（仓库边界、流程、校验、提交）
+├── .gitignore                     # 忽略 Python 字节码缓存
 ├── .claude/
 │   └── skills/gzh-layout-pro/     # 公众号排版技能：6 套主题组件库 + 校验脚本
 └── llm-benchmarks/                # 系列：LLM 评测基准（见该目录 README）
     ├── README.md                  # 系列说明与文章索引
+    ├── gzh/                       # 新构建架构：内容层 / 主题层 / CLI
     ├── hle/                       # 01 · HLE（一篇文章一个子目录）
     ├── agents-last-exam/          # 02 · ALE
     ├── terminal-bench-v4-0/       # 04 · Terminal-Bench 4.0
@@ -27,11 +29,11 @@ neuro-nomad/
     │   ├── terminal-bench-v4-0_排版_留白禅意风(zen-whitespace)_预览.html
     │   ├── terminal-bench-v4-0_排版_橄榄手记(olive-journal).html
     │   └── terminal-bench-v4-0_排版_橄榄手记(olive-journal)_预览.html
-    ├── gzh_moyu_gen.py            # 摸鱼绿版装配脚本
-    ├── gzh_olive_gen.py           # 橄榄手记版装配脚本（复用摸鱼绿的内容层）
-    ├── gzh_graphite_ale_gen.py    # ALE 石墨极简版装配脚本
-    ├── patch_zen.py               # 留白禅意版：删节 + 参考来源重编号（一次性补丁）
-    ├── patch_zen_mermaid.py       # 留白禅意版：移除 Mermaid 源码块（一次性补丁）
+    ├── gzh_moyu_gen.py            # 摸鱼绿版兼容入口（实际构建在 gzh/）
+    ├── gzh_olive_gen.py           # 橄榄手记版兼容入口（实际构建在 gzh/）
+    ├── gzh_olive_hle_gen.py       # HLE 橄榄手记版兼容入口（实际构建在 gzh/）
+    ├── gzh_graphite_ale_gen.py    # ALE 石墨极简版兼容入口（实际构建在 gzh/）
+    ├── patches/                   # 一次性补丁，仅作历史留档（zen）
     └── check_completeness.py      # 核对 HTML 相对源 Markdown 的内容零遗漏
 ```
 
