@@ -131,7 +131,7 @@ def cover():
     W('<section style="padding:28px 24px 22px;">')
     W('<section style="display:flex;align-items:center;gap:8px;margin-bottom:22px;">')
     W('<span style="width:8px;height:8px;background:#1e1f23;border-radius:50%;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
-    W('<span style="font-size:10px;font-weight:700;letter-spacing:3px;color:#65675e;">' + leaf('FIELD NOTES · 基准观察') + '</span>')
+    W('<span style="font-size:10px;font-weight:700;letter-spacing:3px;color:#65675e;">' + leaf('LLM BENCHMARKS · 01') + '</span>')
     W('<span style="flex:1;height:1px;background:#bfc1b7;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
     W('<span style="font-size:10px;color:#9ea096;font-weight:500;">' + leaf('2026.11') + '</span>')
     W('</section>')

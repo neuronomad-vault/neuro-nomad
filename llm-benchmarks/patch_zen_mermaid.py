@@ -7,6 +7,7 @@ import os
 import re
 
 p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                 'terminal-bench-v4-0',
                  'terminal-bench-v4-0_排版_留白禅意风(zen-whitespace).html')
 h = open(p, encoding='utf-8').read()
 

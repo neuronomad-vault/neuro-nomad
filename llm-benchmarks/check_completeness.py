@@ -10,6 +10,7 @@ import re
 import sys
 
 DEFAULT = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                       'terminal-bench-v4-0',
                        'terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html')
 out_path = sys.argv[1] if len(sys.argv) > 1 else DEFAULT
 
