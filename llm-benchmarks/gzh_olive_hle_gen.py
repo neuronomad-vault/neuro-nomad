@@ -76,10 +76,9 @@ def cover():
     W('</section>')
     W('<section style="display:flex;align-items:stretch;gap:18px;">')
     W('<section style="flex:1;min-width:0;">')
-    W('<p style="font-size:14px;color:#9ea096;margin:0 0 8px;letter-spacing:0.3px;text-decoration:line-through;">' + leaf('又一场排行榜竞赛？') + '</p>')
-    W('<p style="font-size:24px;font-weight:800;color:#23251d;margin:0 0 10px;line-height:1.15;letter-spacing:-0.75px;">'
-      + leaf('人类最后的考试') + '<span style="color:#4d4f46;">' + leaf(' · ') + '</span>'
-      + '<span style="border-bottom:3px solid #ed7b2f;">' + leaf('答案本身未必对') + '</span></p>')
+    W('<p style="font-size:24px;font-weight:800;color:#23251d;margin:0 0 10px;line-height:1.35;letter-spacing:-0.75px;">'
+      + leaf('人类最后的考试？') + '<br>'
+      + '<span style="font-size:19px;border-bottom:3px solid #ed7b2f;">' + leaf('首先，标准答案本身未必对') + '</span></p>')
     W('<section style="display:flex;align-items:center;gap:4px;margin-bottom:12px;">')
     W('<span style="width:22px;height:3px;background:#1e1f23;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
     W('<span style="width:8px;height:3px;background:#bfc1b7;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
