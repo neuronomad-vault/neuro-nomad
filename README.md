@@ -13,6 +13,7 @@
 ```
 neuro-nomad/
 ├── README.md
+├── AGENTS.md                      # Agent 工作约定（仓库边界、流程、校验、提交）
 ├── .claude/
 │   └── skills/gzh-layout-pro/     # 公众号排版技能：6 套主题组件库 + 校验脚本
 └── llm-benchmarks/                # 系列：LLM 评测基准（见该目录 README）
@@ -64,6 +65,7 @@ python3 llm-benchmarks/check_completeness.py \
 
 ## 约定
 
+- Agent 工作约定见 [AGENTS.md](AGENTS.md)：仓库边界、系列编号、排版契约、校验与提交流程。
 - 正文 HTML 一律由脚本生成；直接手改会与生成脚本脱节，改内容请改脚本后重跑。
 - 一次性补丁脚本（`patch_*.py`）仅作历史留档，重复运行会触发断言失败。
 - 提交信息遵循 `<type>(<scope>): <subject>`，如 `docs(gzh): 归档 xxx 三版公众号图文`。
