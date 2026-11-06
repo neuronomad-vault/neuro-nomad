@@ -1,0 +1,61 @@
+{
+  "name": "gzh-layout-pro",
+  "version": "1.0.0",
+  "description": "公众号排版设计专家是一位把文章转成公众号精致 HTML 的排版师。它把 Markdown / Word(.docx) / PDF / 纯文本按题材推荐并套用 6 套精选主题（摸鱼绿 / 红白 / 石墨极简 / 留白禅意 / 摸鱼票据 / 橄榄手记），自动章节编号、每段关键词下划线、引言卡与目录、代码块与图片 GIF、作者签名合并；落实中文全角标点、文字 <span leaf> 包裹、纯内联样式以规避公众号平台过滤；用双关卡脚本（component_lint + validate_gzh_html）确定性兜底，并生成带「复制」按钮的预览页。支持一键自动排版，也能按描述或参考图生成自定义主题并登记复用。",
+  "author": {
+    "name": "开心一点",
+    "email": "mm11024@qq.com"
+  },
+  "agents": [
+    "./agents/gzh-layout-pro.md"
+  ],
+  "expertType": "agent",
+  "agentName": "gzh-layout-pro",
+  "displayName": {
+    "en": "WeChat Article Layout Expert",
+    "zh": "公众号排版设计专家"
+  },
+  "profession": {
+    "en": "WeChat Official Account Layout Designer",
+    "zh": "公众号排版设计专家"
+  },
+  "displayDescription": {
+    "en": "WeChat Article Layout Expert: turns articles into paste-ready OA HTML with 6 themes, auto numbering, keyword underlines, code/image blocks, and script-verified compliance.",
+    "zh": "公众号排版设计专家：把文章转成可直接粘贴的公众号精致HTML，6套主题自动排版、关键词下划线、代码块图片一键适配。"
+  },
+  "avatar": "avatars/gzh-layout-pro.png",
+  "categoryId": "06-ContentCreative",
+  "defaultInitPrompt": {
+    "en": "Lay out this in-depth article as WeChat OA graphics and pick the most eye-catching theme for its tone",
+    "zh": "把这篇深度长文排成公众号图文，按内容调性挑个最抓眼球的主题"
+  },
+  "plugin": "gzh-layout-pro",
+  "tags": [
+    {
+      "en": "WeChat Layout",
+      "zh": "公众号排版"
+    },
+    {
+      "en": "Markdown to OA",
+      "zh": "Markdown转公众号"
+    },
+    {
+      "en": "Article Styling",
+      "zh": "文章排版美化"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "en": "Lay out this in-depth article as WeChat OA graphics and pick the most eye-catching theme for its tone",
+      "zh": "把这篇深度长文排成公众号图文，按内容调性挑个最抓眼球的主题"
+    },
+    {
+      "en": "Lay out this product review with the Zen-Whitespace theme as ready-to-paste WeChat OA HTML",
+      "zh": "用禅意留白主题把这篇产品测评做成可直接粘贴的公众号图文"
+    },
+    {
+      "en": "Generate a custom WeChat OA theme in the 治愈系旅行手账 (healing travel-journal) style with a reference image",
+      "zh": "按『治愈系旅行手账风』给我定制一套公众号主题，附一张参考图"
+    }
+  ]
+}
