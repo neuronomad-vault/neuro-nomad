@@ -194,7 +194,7 @@ class OliveTheme(Theme):
                 out.append(leaf(seg))
         return ''.join(out)
 
-    def cover(self, series, date, kicker, title, accent, subtitle, benchmark, meta, tags, compact_meta=None):
+    def cover(self, series, date, kicker, title, accent, subtitle, benchmark, meta, tags, compact_meta=None, sep=' · '):
         self.w('<section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;overflow:hidden;">')
         self.w('<section style="padding:28px 24px 22px;">')
         self.w('<section style="display:flex;align-items:center;gap:8px;margin-bottom:22px;">')
@@ -206,9 +206,15 @@ class OliveTheme(Theme):
         self.w('<section style="display:flex;align-items:stretch;gap:18px;">')
         self.w('<section style="flex:1;min-width:0;">')
         self.w('<p style="font-size:14px;color:#9ea096;margin:0 0 8px;letter-spacing:0.3px;text-decoration:line-through;">' + leaf(kicker) + '</p>')
+        # sep='' 时为连续句标题：强调部分整体不拆行，避免下划线在换行处断裂、
+        # 且第二行只剩一两个孤字。逗号处由容器自然换行，两行长度更均衡。
+        accent_style = 'border-bottom:3px solid #ed7b2f;'
+        if not sep:
+            accent_style += 'white-space:nowrap;'
         self.w('<p style="font-size:24px;font-weight:800;color:#23251d;margin:0 0 10px;line-height:1.15;letter-spacing:-0.75px;">'
-               + leaf(title) + '<span style="color:#4d4f46;">' + leaf(' · ') + '</span>'
-               + '<span style="border-bottom:3px solid #ed7b2f;">' + leaf(accent) + '</span></p>')
+               + leaf(title)
+               + (('<span style="color:#4d4f46;">' + leaf(sep) + '</span>') if sep else '')
+               + '<span style="' + accent_style + '">' + leaf(accent) + '</span></p>')
         self.w('<section style="display:flex;align-items:center;gap:4px;margin-bottom:12px;">')
         self.w('<span style="width:22px;height:3px;background:#1e1f23;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')
         self.w('<span style="width:8px;height:3px;background:#bfc1b7;border-radius:2px;display:inline-block;overflow:hidden;vertical-align:middle;font-size:0;line-height:0;">' + blank() + '</span>')

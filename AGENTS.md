@@ -51,7 +51,7 @@ llm-benchmarks/
 |---|---|---|
 | 01 | Humanity's Last Exam (HLE) | 橄榄手记 |
 | 02 | Agents' Last Exam (ALE) | 石墨极简风 |
-| 03 | Science's Last Exam (SLE) | 橄榄手记（全文照排，2026-11-08 榜单口径） |
+| 03 | Science's Last Exam (SLE) | 橄榄手记（发布删减版，2026-11-08 榜单口径） |
 | 04 | Terminal-Bench 4.0 | 摸鱼绿（另留白禅意 / 橄榄手记为对照存档） |
 
 - 新文章按顺序顺延编号；封面眉标统一写 `LLM BENCHMARKS · NN`，禅意版写 `—— LLM Benchmarks 系列 · NN`。
@@ -128,11 +128,12 @@ python3 .claude/skills/gzh-layout-pro/scripts/wrap_preview.py \
 - 图片素材与正文分离：`llm-benchmarks/hle/` 下的 PNG 目前只是归档，尚未接入排版；接入前先确认用户要求。
 - 迁移状态：ALE、SLE、Terminal-Bench、HLE 均已迁到 `gzh/`；`gzh_moyu_gen.py` / `gzh_olive_gen.py` / `gzh_olive_hle_gen.py` / `gzh_graphite_ale_gen.py` 只作兼容入口。TB 的 `zen` 主题由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（raw HTML），`patches/patch_zen*.py` 仅作历史留档。
 - HLE 公众号版是**节选**：`gzh/registry.py` 里 `completeness=False`，`--check` 只跑 HTML 合规，不跑源稿逐项完整性；新增 HLE 内容时不要误以为漏了原稿章节。
+- SLE 公众号版是**发布删减版**（不是节选）：移除仓库内务引用（`sources/` 归档、`AGENTS.md`、README 索引、slug 拆分决策）、参考来源里 6 条非一手条目（来源 20 → 14 条）与正文／表格中的阴性核验描述；源 Markdown 不动。`check_completeness.py` 对 SLE 做基线裁剪，只剔除这些来源行与 3 行改写过的表格行，其余 202 单元格 / 19 URL / 6 代码行 / 9 + 8 标题仍逐项核对。删减范围见 `llm-benchmarks/README.md`「SLE 发布删减与核对基线」。
 
 ## 9. 当前状态
 
 - 系列：LLM Benchmarks
-- 已排：HLE（01 / 橄榄手记）、ALE（02 / 石墨极简风）、SLE（03 / 橄榄手记、全文照排）、Terminal-Bench 4.0（04 / 摸鱼绿、留白禅意、橄榄手记）
+- 已排：HLE（01 / 橄榄手记）、ALE（02 / 石墨极简风）、SLE（03 / 橄榄手记、发布删减版）、Terminal-Bench 4.0（04 / 摸鱼绿、留白禅意、橄榄手记）
 - 待排：暂无；SLE（03）已排，口径锁定官网 2026-11-08 榜单，后续榜单增行仍属同构念更新、并入本篇
 - 构建架构：ALE、SLE、Terminal-Bench、HLE 已迁到 `gzh/` 包；TB 的 zen 用 raw 内容层冻结，组件式 ZenTheme 尚未实现
-- 截至 2026-11-06，最近关键提交：`9684e2d chore(gzh): 合入 ALE 第 2 篇图文与序号调整`
+- 截至 2026-11-08，最近关键提交：`3d2bd73 feat(gzh): 新增 SLE 第 3 篇图文（橄榄手记 · 全文照排）`（删减前完整版留档；发布删减版改动尚未提交）

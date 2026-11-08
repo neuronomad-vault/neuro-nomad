@@ -18,7 +18,7 @@
 | 03 | [Science's Last Exam (SLE)](sciences-last-exam/sciences-last-exam_排版_橄榄手记(olive-journal).html) | Release v1（113 tasks，2026-11-06；榜单 2026-11-08 口径） | 橄榄手记 | `benchmarks/sciences-last-exam.md` |
 | 04 | [Terminal-Bench 4.0](terminal-bench-v4-0/terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html) | v4.0.0 | 摸鱼绿 / 留白禅意 / 橄榄手记 | `benchmarks/terminal-bench-v4-0.md` |
 
-HLE 为系列第一篇，按用户指定使用**橄榄手记**；ALE 为第二篇，主推**石墨极简风**；SLE 为第三篇，同样用**橄榄手记**（数据密集的核验长文，与 01 呼应），口径锁定官网 2026-11-08 榜单、全文照排；Terminal-Bench 4.0 原为 02，现顺延为 04，主推版本为**摸鱼绿**，另两版为同一内容的主题对照存档。
+HLE 为系列第一篇，按用户指定使用**橄榄手记**；ALE 为第二篇，主推**石墨极简风**；SLE 为第三篇，同样用**橄榄手记**（数据密集的核验长文，与 01 呼应），口径锁定官网 2026-11-08 榜单；交付稿按发布评审做了删减（移除仓库内务引用、6 条非一手来源与阴性核验描述，详见「排版与校验」）；Terminal-Bench 4.0 原为 02，现顺延为 04，主推版本为**摸鱼绿**，另两版为同一内容的主题对照存档。
 
 ## 系列内文件
 
@@ -37,7 +37,7 @@ llm-benchmarks/
 ├── agents-last-exam/                          # 02 · ALE（同一篇的多主题排版都放这里）
 │   ├── agents-last-exam_排版_石墨极简风(graphite-minimal).html
 │   └── agents-last-exam_排版_石墨极简风(graphite-minimal)_预览.html
-├── sciences-last-exam/                        # 03 · SLE（橄榄手记，全文照排）
+├── sciences-last-exam/                        # 03 · SLE（橄榄手记，发布删减版）
 │   ├── sciences-last-exam_排版_橄榄手记(olive-journal).html
 │   └── sciences-last-exam_排版_橄榄手记(olive-journal)_预览.html
 ├── terminal-bench-v4-0/                       # 04 · Terminal-Bench 4.0（同一篇的多主题排版都放这里）
@@ -91,6 +91,20 @@ python3 check_completeness.py \
   "agents-last-exam/agents-last-exam_排版_石墨极简风(graphite-minimal).html" \
   /Users/admin/work/llm-benchmarks/benchmarks/agents-last-exam.md
 ```
+
+### SLE（03）发布删减与核对基线
+
+公众号版不向读者展示仓库内务、「查无结果」的核验记录与阴性过程描述，交付稿做了三类删减：
+
+| 删减项 | 具体范围 |
+|---|---|
+| 本仓库内务引用 | 第 1 章「核验说明」整块、「slug 与拆分决策」CAVEAT 整块、路径约定里的本仓库路径句与「README 索引」指代、第 3 章旧快照 CSV 文件名括注、第 4.2 节 `AGENTS.md` §5、第 7 章「详见 sources/README.md」括注、参考来源第 2 / 8 / 9 条的副本括注 |
+| 参考来源中的非一手条目 | HF 任务卡（直连未取到）、BenchLM / LLMLearner / DataLearner（无 SLE 条目）、arXiv（零结果 / 未找到）、二手转述（无独立可引 URL + 第三方镜像）；共 **6 条**，来源 **20 → 14 条**，编号自动重排 |
+| 表格与正文的阴性核验描述 | 表 3「直连未取到 / 未核验」、表 7 的 HF 链接核验行改写与「论文」行移除、第 4 / 5 / 7 章的 arXiv 零结果、三家目录无条目、HF 直连失败、Gemini 录屏未核验等过程句 |
+
+保留**结论性判断**（如「方法学只有自述文档，无独立论文或第三方复核」）与 4 处「不要跨口径比较」读者向警示；删掉的是「哪天访问了哪个地址、HTTP 000」这类考据过程。源 Markdown 保持原样（核验底稿）。
+
+`check_completeness.py` 对 SLE 源稿做基线裁剪：剔除 6 条来源行 + frontmatter 中的同一 URL、以及表 3 / 表 7 共 3 行改写过的表格行；其余 **202 个表格单元格、19 个 URL、6 行代码、9 个 `##` + 8 个 `###`** 仍逐项核对，因此 SLE **不是**「跳过核对」的节选版。删减前的全文照排版已留档在提交 `3d2bd73`。
 
 ## 新增一篇的流程
 
