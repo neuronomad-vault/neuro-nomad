@@ -51,7 +51,7 @@ llm-benchmarks/
 |---|---|---|
 | 01 | Humanity's Last Exam (HLE) | 橄榄手记 |
 | 02 | Agents' Last Exam (ALE) | 石墨极简风 |
-| 03 | Science's Last Exam (SLE) | 待排 |
+| 03 | Science's Last Exam (SLE) | 橄榄手记（全文照排，2026-11-08 榜单口径） |
 | 04 | Terminal-Bench 4.0 | 摸鱼绿（另留白禅意 / 橄榄手记为对照存档） |
 
 - 新文章按顺序顺延编号；封面眉标统一写 `LLM BENCHMARKS · NN`，禅意版写 `—— LLM Benchmarks 系列 · NN`。
@@ -126,13 +126,13 @@ python3 .claude/skills/gzh-layout-pro/scripts/wrap_preview.py \
 - 同一篇文章多主题版本共享内容层，改内容后所有主题都要重跑，避免版本间内容漂移。
 - 预览页的「复制」按钮只在预览外壳里，不在被复制的 `<section>` 内；不要把预览页当成正文提交给公众号。
 - 图片素材与正文分离：`llm-benchmarks/hle/` 下的 PNG 目前只是归档，尚未接入排版；接入前先确认用户要求。
-- 迁移状态：ALE、Terminal-Bench、HLE 均已迁到 `gzh/`；`gzh_moyu_gen.py` / `gzh_olive_gen.py` / `gzh_olive_hle_gen.py` / `gzh_graphite_ale_gen.py` 只作兼容入口。TB 的 `zen` 主题由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（raw HTML），`patches/patch_zen*.py` 仅作历史留档。
+- 迁移状态：ALE、SLE、Terminal-Bench、HLE 均已迁到 `gzh/`；`gzh_moyu_gen.py` / `gzh_olive_gen.py` / `gzh_olive_hle_gen.py` / `gzh_graphite_ale_gen.py` 只作兼容入口。TB 的 `zen` 主题由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（raw HTML），`patches/patch_zen*.py` 仅作历史留档。
 - HLE 公众号版是**节选**：`gzh/registry.py` 里 `completeness=False`，`--check` 只跑 HTML 合规，不跑源稿逐项完整性；新增 HLE 内容时不要误以为漏了原稿章节。
 
 ## 9. 当前状态
 
 - 系列：LLM Benchmarks
-- 已排：HLE（01 / 橄榄手记）、ALE（02 / 石墨极简风）、Terminal-Bench 4.0（04 / 摸鱼绿、留白禅意、橄榄手记）
-- 待排：SLE（03，源稿 `benchmarks/sciences-last-exam.md`，建议等 v1 相对稳定后再排）
-- 构建架构：ALE、Terminal-Bench、HLE 已迁到 `gzh/` 包；TB 的 zen 用 raw 内容层冻结，组件式 ZenTheme 尚未实现
+- 已排：HLE（01 / 橄榄手记）、ALE（02 / 石墨极简风）、SLE（03 / 橄榄手记、全文照排）、Terminal-Bench 4.0（04 / 摸鱼绿、留白禅意、橄榄手记）
+- 待排：暂无；SLE（03）已排，口径锁定官网 2026-11-08 榜单，后续榜单增行仍属同构念更新、并入本篇
+- 构建架构：ALE、SLE、Terminal-Bench、HLE 已迁到 `gzh/` 包；TB 的 zen 用 raw 内容层冻结，组件式 ZenTheme 尚未实现
 - 截至 2026-11-06，最近关键提交：`9684e2d chore(gzh): 合入 ALE 第 2 篇图文与序号调整`

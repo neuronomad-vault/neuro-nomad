@@ -22,6 +22,7 @@ neuro-nomad/
     ├── gzh/                       # 新构建架构：内容层 / 主题层 / CLI
     ├── hle/                       # 01 · HLE（一篇文章一个子目录）
     ├── agents-last-exam/          # 02 · ALE
+    ├── sciences-last-exam/        # 03 · SLE
     ├── terminal-bench-v4-0/       # 04 · Terminal-Bench 4.0
     │   ├── terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html
     │   ├── terminal-bench-v4-0_排版_摸鱼绿(moyu-green)_预览.html
@@ -41,7 +42,7 @@ neuro-nomad/
 
 | 系列 | 目录 | 定位 | 最新文章 |
 |---|---|---|---|
-| LLM Benchmarks | `llm-benchmarks/` | 逐篇拆解大模型评测基准：考什么、怎么跑、分数怎么读 | Agents' Last Exam (ALE) |
+| LLM Benchmarks | `llm-benchmarks/` | 逐篇拆解大模型评测基准：考什么、怎么跑、分数怎么读 | Science's Last Exam (SLE) |
 
 各系列的文章索引、文件命名与选题约定见系列目录下的 `README.md`。
 源 Markdown 存放在 `/Users/admin/work/llm-benchmarks/benchmarks/`，不在本仓库。

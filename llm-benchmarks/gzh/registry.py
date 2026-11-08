@@ -11,6 +11,15 @@ ARTICLES = {
         'source': '/Users/admin/work/llm-benchmarks/benchmarks/agents-last-exam.md',
         'themes': ['graphite'],
     },
+    'sciences-last-exam': {
+        'label': "Science's Last Exam (SLE)",
+        'module': 'gzh.articles.sciences_last_exam',
+        'output_dir': 'sciences-last-exam',
+        'series': '03',
+        'date': '2026.11',
+        'source': '/Users/admin/work/llm-benchmarks/benchmarks/sciences-last-exam.md',
+        'themes': ['olive'],
+    },
     'terminal-bench-v4-0': {
         'label': 'Terminal-Bench 4.0',
         'module': 'gzh.articles.terminal_bench',

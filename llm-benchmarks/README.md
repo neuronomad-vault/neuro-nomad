@@ -15,10 +15,10 @@
 |---|---|---|---|---|
 | 01 | [Humanity's Last Exam (HLE)](hle/hle_排版_橄榄手记(olive-journal).html) | 2,500 题（2026-11 核验） | 橄榄手记 | `benchmarks/hle.md` |
 | 02 | [Agents' Last Exam (ALE)](agents-last-exam/agents-last-exam_排版_石墨极简风(graphite-minimal).html) | v1.1（122 tasks，2026-11-05） | 石墨极简风 | `benchmarks/agents-last-exam.md` |
-| 03 | Science's Last Exam (SLE) | Release v1（113 tasks，2026-11-06） | 待排 | `benchmarks/sciences-last-exam.md` |
+| 03 | [Science's Last Exam (SLE)](sciences-last-exam/sciences-last-exam_排版_橄榄手记(olive-journal).html) | Release v1（113 tasks，2026-11-06；榜单 2026-11-08 口径） | 橄榄手记 | `benchmarks/sciences-last-exam.md` |
 | 04 | [Terminal-Bench 4.0](terminal-bench-v4-0/terminal-bench-v4-0_排版_摸鱼绿(moyu-green).html) | v4.0.0 | 摸鱼绿 / 留白禅意 / 橄榄手记 | `benchmarks/terminal-bench-v4-0.md` |
 
-HLE 为系列第一篇，按用户指定使用**橄榄手记**；ALE 为第二篇，主推**石墨极简风**；SLE 规划为第三篇，建议等 ALE 发布且 SLE v1 相对稳定后再排；Terminal-Bench 4.0 原为 02，现顺延为 04，主推版本为**摸鱼绿**，另两版为同一内容的主题对照存档。
+HLE 为系列第一篇，按用户指定使用**橄榄手记**；ALE 为第二篇，主推**石墨极简风**；SLE 为第三篇，同样用**橄榄手记**（数据密集的核验长文，与 01 呼应），口径锁定官网 2026-11-08 榜单、全文照排；Terminal-Bench 4.0 原为 02，现顺延为 04，主推版本为**摸鱼绿**，另两版为同一内容的主题对照存档。
 
 ## 系列内文件
 
@@ -37,6 +37,9 @@ llm-benchmarks/
 ├── agents-last-exam/                          # 02 · ALE（同一篇的多主题排版都放这里）
 │   ├── agents-last-exam_排版_石墨极简风(graphite-minimal).html
 │   └── agents-last-exam_排版_石墨极简风(graphite-minimal)_预览.html
+├── sciences-last-exam/                        # 03 · SLE（橄榄手记，全文照排）
+│   ├── sciences-last-exam_排版_橄榄手记(olive-journal).html
+│   └── sciences-last-exam_排版_橄榄手记(olive-journal)_预览.html
 ├── terminal-bench-v4-0/                       # 04 · Terminal-Bench 4.0（同一篇的多主题排版都放这里）
 │   ├── <slug>_排版_<主题名>(<theme>).html       # 公众号正文（内联样式，可直接粘贴）
 │   └── <slug>_排版_<主题名>(<theme>)_预览.html  # 预览页，带「复制」按钮
@@ -47,7 +50,7 @@ llm-benchmarks/
 
 - `<slug>` 采用 `<benchmark>-v<major>-<minor>`，如 `terminal-bench-v4-0`；同名的子目录存放该篇的全部产物。
 - 同一篇文章的多主题版本共享内容装配层，只替换组件层，保证内容零差异。
-- 封面眉标统一标注系列与序号：HLE 为 `01`，ALE 为 `02`，SLE 预留 `03`，Terminal-Bench 4.0 顺延为 `04`（禅意版写作 `—— LLM Benchmarks 系列 · 04`）。
+- 封面眉标统一标注系列与序号：HLE 为 `01`，ALE 为 `02`，SLE 为 `03`，Terminal-Bench 4.0 顺延为 `04`（禅意版写作 `—— LLM Benchmarks 系列 · 04`）。
 - 正文 HTML 由脚本生成，不手改；改内容改脚本后重跑。
 - 一次性补丁脚本重复运行会触发断言失败，仅作留档。
 
@@ -67,7 +70,7 @@ python3 -m gzh.cli build agents-last-exam --theme graphite --preview --check
 python3 -m gzh.cli build --all
 ```
 
-当前迁移状态：ALE、Terminal-Bench、HLE 均已迁到 `gzh/`。TB 提供 `moyu` / `olive` / `zen` 三套主题；`zen` 由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（导语、TOC 与表格是单独改写的，不走组件层），`patches/` 中的 zen 补丁已停止使用。HLE 使用 `olive-hle` 变体（与 `olive` 共用组件，保留 HLE 旧稿的换行与行内代码样式）；HLE 公众号版为节选，`--check` 只跑 HTML 合规，不核对源稿逐项完整性。
+当前迁移状态：ALE、SLE、Terminal-Bench、HLE 均已迁到 `gzh/`。SLE 使用 `olive`，主题层为其补了 `table(real=True)`（三列长文本改走可横向滚动的真表格）与 `flow_sle()`（四段评测链路的内联流程图，替代源稿的 Mermaid fence）；TB 提供 `moyu` / `olive` / `zen` 三套主题；`zen` 由 `gzh/articles/terminal_bench_zen.py` 冻结现有定稿（导语、TOC 与表格是单独改写的，不走组件层），`patches/` 中的 zen 补丁已停止使用。HLE 使用 `olive-hle` 变体（与 `olive` 共用组件，保留 HLE 旧稿的换行与行内代码样式）；HLE 公众号版为节选，`--check` 只跑 HTML 合规，不核对源稿逐项完整性。
 
 ## 排版与校验
 

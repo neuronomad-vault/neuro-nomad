@@ -106,6 +106,64 @@ FLOW_OLIVE = r'''<section style="margin:0 0 24px;">
 </section>'''
 
 
+FLOW_SLE = r'''<section style="margin:0 0 24px;">
+  <p style="margin:0 0 12px;font-size:10px;font-weight:800;letter-spacing:3px;color:#ed7b2f;"><span leaf="">EVAL FLOW · 一次运行的四段</span></p>
+
+  <section style="background:#eeefe9;border:1px solid #bfc1b7;border-left:3px solid #1e1f23;border-radius:6px;padding:12px 14px;">
+    <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#23251d;letter-spacing:1px;"><span leaf="">① 任务输入 · 公开层</span></p>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">113 个公开任务</span></p>
+      <p style="margin:0;font-size:12px;color:#65675e;line-height:1.7;"><span leaf="">9 学科 / 6 能力 + 1 端到端</span></p>
+    </section>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;margin-top:8px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">任务卡 + Agent 输入</span></p>
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">Hugging Face 公开下载</span></p>
+    </section>
+  </section>
+
+  <p style="margin:8px 0;text-align:center;font-size:11px;font-weight:700;color:#ed7b2f;letter-spacing:0.5px;"><span leaf="">↓　只给 instruction 与输入</span></p>
+
+  <section style="background:#eeefe9;border:1px solid #bfc1b7;border-left:3px solid #1e1f23;border-radius:6px;padding:12px 14px;">
+    <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#23251d;letter-spacing:1px;"><span leaf="">② Agent 执行 · solver 容器</span></p>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">Claude Code / Codex</span></p>
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">固定 CLI 版本，禁用联网检索</span></p>
+    </section>
+    <section style="background:#fdfdf8;border:1px dashed #bfc1b7;border-radius:6px;padding:7px 12px;margin-top:8px;">
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">↳ Docker / GUI 桌面 / DiscoveryRSI　15 或 90 分钟、200 步上限</span></p>
+    </section>
+  </section>
+
+  <p style="margin:8px 0;text-align:center;font-size:11px;font-weight:700;color:#ed7b2f;letter-spacing:0.5px;"><span leaf="">↓　参考数据永不进入 solver 容器</span></p>
+
+  <section style="background:#eeefe9;border:1px solid #bfc1b7;border-left:3px solid #1e1f23;border-radius:6px;padding:12px 14px;">
+    <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#23251d;letter-spacing:1px;"><span leaf="">③ 独立判分 · 参考隔离</span></p>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">withheld reference</span></p>
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">gated 数据集，需人工审批</span></p>
+    </section>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;margin-top:8px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">独立 verifier 容器</span></p>
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">GUI 任务改用 trusted GUI controller</span></p>
+    </section>
+  </section>
+
+  <p style="margin:8px 0;text-align:center;font-size:11px;font-weight:700;color:#ed7b2f;letter-spacing:0.5px;"><span leaf="">↓　判分结果汇总</span></p>
+
+  <section style="background:#eeefe9;border:1px solid #bfc1b7;border-left:3px solid #1e1f23;border-radius:6px;padding:12px 14px;">
+    <p style="margin:0 0 8px;font-size:11px;font-weight:800;color:#23251d;letter-spacing:1px;"><span leaf="">④ 汇总 · 六项等权</span></p>
+    <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:8px 12px;">
+      <p style="margin:0;font-size:13px;color:#23251d;line-height:1.7;"><span leaf="">HD / PP / SC / SSO / EO / E2E　各占 1/6</span></p>
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">Wet-lab 不计分</span></p>
+    </section>
+    <section style="background:#fdfdf8;border:1px dashed #bfc1b7;border-radius:6px;padding:7px 12px;margin-top:8px;">
+      <p style="margin:0;font-size:11px;color:#65675e;line-height:1.7;"><span leaf="">↳ Composite 0–100　E2E 恒 0 → 实际上限 83.33</span></p>
+    </section>
+  </section>
+
+</section>'''
+
+
 class OliveTheme(Theme):
     name = '橄榄手记'
     label = '橄榄手记'
@@ -263,7 +321,8 @@ class OliveTheme(Theme):
     def table(self, caption, headers, rows, widths=None, tight=False, real=False):
         self.cap(caption)
         n = len(headers)
-        if n <= 3:
+        # real=True 强制走可横向滚动的真表格：三列但单元格很长时（如沿革表、口径对照表）用
+        if n <= 3 and not real:
             widths = {2: [42, 58], 3: [24, 32, 44]}.get(n, [100 // n] * n)
             self.w('<section style="margin:0 0 24px;border-radius:6px;overflow:hidden;border:1px solid #bfc1b7;background:#fdfdf8;">')
             self.w('<section style="display:flex;background:#eeefe9;border-bottom:1px solid #bfc1b7;">')
@@ -333,6 +392,10 @@ class OliveTheme(Theme):
 
     def flow_terminal_bench(self):
         self.w(FLOW_OLIVE)
+
+    def flow_sle(self):
+        """SLE 的四段评测链路：公开输入 → solver 容器 → 参考隔离判分 → 六项等权汇总。"""
+        self.w(FLOW_SLE)
 
     # ---------- HLE 专用组件 ----------
     def cover_hle(self, series, date, title, subtitle, benchmark, meta, tags):
